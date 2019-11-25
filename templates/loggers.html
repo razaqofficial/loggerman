@@ -1,0 +1,34 @@
+{{ define "title" }} Loggers {{ end }}
+{{ define "content" }}
+    <div class="container features">
+        <a href="/add/logger" class="btn btn-danger float-right"> Join Logger <i class="fa fa-plus"></i> </a>
+        <h3 class="text-center text-custom">{{ .Title }}</h3>
+        <ul class="list-group">
+          {{ range $index,$value :=  .Loggers }}
+            <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <div class="flex-column">
+                    {{ $index }}] {{ .Name }}
+                    <p><small>{{ .Description }}</small></p>
+                    {{if le .Strength 10 }}
+                    <span class="badge badge-danger badge-pill">Strength: {{ .Strength }}</span>
+                    {{ else if le .Strength 50 }}
+                        <span class="badge badge-info badge-pill">Strength: {{ .Strength }}</span>
+                     {{ else }}
+                        <span class="badge badge-success badge-pill">Strength: {{ .Strength }}</span>
+                    {{end}}
+                </div>
+                <div class="flex-column text-center">
+                   <a href="#" class="btn btn-outline-success btn-sm btn-block">Hire {{.Name}} <i class="fa fa-arrow-right"></i></a>
+                    <span class="badge badge-success badge-pill text-center">&#8358;{{ .Price }}</span>
+                </div>
+                <div class="image-parent">
+                    <img src="/static/images/{{ .Image }}" width="50" class="img-fluid" alt="quixote">
+                    <div class="figure-caption">
+                        Age: {{ .Age }}
+                    </div>
+                </div>
+            </div>
+          {{ end }}
+        </ul>
+    </div>
+{{ end }}

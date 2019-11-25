@@ -1,0 +1,26 @@
+{{ define "title" }} Contact {{ end }}
+{{ define "content" }}
+    <div class="container features">
+        <h3 class="text-center text-custom">Get in Touch!</h3>
+        <div class="col-md-12">
+            <form method="post" action="/contact">
+                <div class="row justify-content-center">
+                    <div class="col-5">
+                        <input type="text" name="name" class="form-control" placeholder="Your name" required>
+                    </div>
+                    <div class="col-5">
+                        <input type="email" class="form-control" name="email" placeholder="Email address" required>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-10">
+                        <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                 <button type="submit" class="text-center btn btn-success">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{{ end }}
